@@ -45,3 +45,14 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 ```bash
 pip install -r requirements.txt
 ```
+
+**To Test:**
+
+During training a snapshot of the model is saved in the models directory under a timestamped subfolder.  This will also happen when the model is complete (currently 50,000 episodes). 
+
+To test your model, go into the test_model.py file in `MODEL_PATH` update the name of the model's directory name and name of the model. 
+
+Choose the level you want to test the model on in the `env` variable.  See gym-super-mario-bros documentation to understand the naming pattern.  The model will run best on the level that it was trained on, but you can run it on any level. 
+
+From the root directory run `python test_model.py` The script is currently set to run 100 episodes, and will give you the number of times it completed the level at the end. I'm determining if the level was complete by the reward count.  For me a reward of 3000 was about when the level was finished. There's probably a better way to determine that so that may change in the future. 
+

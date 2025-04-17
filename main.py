@@ -1,5 +1,9 @@
 import torch
 
+print(torch.cuda.is_available())  # Should return True if CUDA is available indicating GPU is available
+print(torch.version.cuda)        # Should return cuda version
+print(torch.cuda.get_device_name(0))  # Should print your GPU name
+
 import gym_super_mario_bros
 from gym_super_mario_bros.actions import RIGHT_ONLY
 
@@ -23,7 +27,7 @@ else:
 ENV_NAME = 'SuperMarioBros-1-1-v0'
 SHOULD_TRAIN = True
 DISPLAY = True
-CKPT_SAVE_INTERVAL = 5000
+CKPT_SAVE_INTERVAL = 2000
 NUM_OF_EPISODES = 50_000
 
 env = gym_super_mario_bros.make(ENV_NAME, render_mode='human' if DISPLAY else 'rgb', apply_api_compatibility=True)

@@ -30,6 +30,7 @@ class AgentNN(nn.Module):
             self._freeze()
         
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
+        print("Using device:", self.device)
         self.to(self.device)
 
     def forward(self, x):
